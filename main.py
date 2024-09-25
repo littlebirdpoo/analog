@@ -15,15 +15,16 @@ def initialize_openai_client(api_key: str):
     global client
     client = OpenAI(api_key=api_key)
 
-def get_user_input() -> Tuple[str, str, str, str]:
+def get_user_input() -> Tuple[str, str, str, str, str]:
     """Get user input from two text fields and three dropdowns."""
     a = st.text_input("Enter therapeutic area or drug name")
     b = st.selectbox("Select commercialization status:", AVAIL)
+    e = st.text_input("Enter Disease or Treatment Characteristics:")
     c = st.text_input("Enter cutoff launch year (show analogs from this year to present)")
     d = st.selectbox("Select view option:", VIEW_OPTIONS)
-    return a, b, c, d
+    return a, b, c, d, e
 
-def generate_response(a: str, b: str, c: str, d: str) -> str:
+def generate_response(a: str, b: str, c: str, d: str, e: str) -> str:
     """Generate a response using GPT-4 with its built-in search capability."""
     if client is None:
         raise ValueError("OpenAI client has not been initialized. Please provide an API key.")
@@ -45,10 +46,7 @@ Selection Criteria:
 The proposed analogs must be drugs that {b}.
 Relevance to the specified therapeutic area: {a}
 Cutoff for launch year: {c}
-Market impact and potential
-Innovative features or mechanisms of action
-Competitive positioning in the market
-Disease prevalence
+Disease or treatment characteristics: {e}
 
 For each proposed analog, provide the following information:
 
