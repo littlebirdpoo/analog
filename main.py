@@ -141,13 +141,13 @@ def main():
         st.session_state.openai_api_key = api_key
         initialize_openai_client(api_key)
 
-        drug, length, yr, view_option = get_user_input()
+        drug, length, yr, view_option, char = get_user_input()
         
         if st.button("Generate"):
             if drug:  # Ensure that drug and length are not empty
                 try:
                     with st.spinner("Searching and generating content..."):
-                        content = generate_response(drug, length, yr, view_option)
+                        content = generate_response(drug, length, yr, view_option, char)
                         st.write("Generated Content:", content)
                 except Exception as e:
                     st.error(f"An error occurred: {str(e)}")
