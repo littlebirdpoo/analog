@@ -54,6 +54,7 @@ Drug Name: [Brand Name (API Name)]
 Manufacturer: [Pharmaceutical company producing the drug]
 Treatment Disease and Indication(s): [Specific conditions the drug treats]
 Orphan Drug Designation: [Yes / No, or provide countries that have given orphan drug designation and other major markets that didn't]
+Justification: [Justification for why the drug was picked]
 
 {"" if d == VIEW_OPTIONS[1] else '''
 Market Approval:
