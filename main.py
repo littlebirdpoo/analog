@@ -4,7 +4,7 @@ from typing import Tuple
 import os
 
 # Define the options for the remaining dropdowns
-AVAIL = ["Are approved therapies only", "Include therapies still in clinical trial"]
+AVAIL = ["Are approved therapies only", "Include therapies still in clinical trial","Have accelerated approval and/or breakthrough designation"]
 VIEW_OPTIONS = ["7 analogs with complete information", "Up to 20 analogs with limited information"]
 
 # Initialize OpenAI client as None, we'll create it after getting the API key
@@ -54,6 +54,7 @@ Drug Name: [Brand Name (API Name)]
 Manufacturer: [Pharmaceutical company producing the drug]
 Treatment Disease and Indication(s): [Specific conditions the drug treats]
 Orphan Drug Designation: [Yes / No, or provide countries that have given orphan drug designation and other major markets that didn't]
+
 Justification: [Justification for why the drug was picked]
 
 {"" if d == VIEW_OPTIONS[1] else '''
